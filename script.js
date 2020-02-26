@@ -25,10 +25,7 @@ function operate(oper, a, b) {
     }
 }
 
-let nums = {};
-for (let i = 0; i < 10; i++) {
-    nums[i] = i;
-};
+// Event listeners for digits, decimal, and clear
 
 const clearDisplay = document.getElementById('clear');
 clearDisplay.addEventListener('click', () => {
@@ -36,9 +33,7 @@ clearDisplay.addEventListener('click', () => {
 });
 const decimal = document.getElementById('decimal');
 decimal.addEventListener('click', () => {
-    let displayValue = document.getElementById('display').innerText;
-    let search = displayValue.search(/[.]/);
-    if (search == -1) {
+    if (document.getElementById('display').innerText.search(/[.]/) == -1) {
         document.getElementById('display').innerText += '.';
     };
 });
@@ -82,3 +77,38 @@ const zero = document.getElementById('zero');
 zero.addEventListener('click', () => {
     document.getElementById('display').innerText += 0;
 });
+
+// Object to hold input values & chosen operator
+
+let value = {};
+
+// Event listeners for operators
+
+const minusOp = document.getElementById('subtract');
+minusOp.addEventListener('click', () => {
+    value['firstNum'] = document.getElementById('display').innerText;
+    value['operator'] = 'subtract';
+    document.getElementById('display').innerText = '';
+});
+const addOp = document.getElementById('add');
+addOp.addEventListener('click', () => {
+    value['firstNum'] = document.getElementById('display').innerText;
+    value['operator'] = 'add';
+    document.getElementById('display').innerText = '';
+});
+const multiplyOp = document.getElementById('multiply');
+multiplyOp.addEventListener('click', () => {
+    value['firstNum'] = document.getElementById('display').innerText;
+    value['operator'] = 'multiply';
+    document.getElementById('display').innerText = '';
+});
+const divideOp = document.getElementById('divide');
+divideOp.addEventListener('click', () => {
+    value['firstNum'] = document.getElementById('display').innerText;
+    value['operator'] = 'divide';
+    document.getElementById('display').innerText = '';
+});
+
+// Event listener for return total
+
+
