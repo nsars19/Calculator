@@ -6,58 +6,52 @@ header {
     padding-bottom: 35px;
 }
 #container {
-    height: 500px;
-    width: 350px;
+    height: 570px;
+    width: 400px;
     margin: auto;
-    display: block;
-    border: 1px solid black;
+    overflow: hidden;
+    border-radius: 12px;    
+    background-color: rgb(65, 63, 62);
 }
 #displayContainer {
-    height: 50px;
-    top: 0px;
-    margin-top: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border: 1px solid black;
+    position: relative;
+    height: 115px;
+    top: 0;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
 }
 #buttonContainer {
     position: relative;
-    top: 30px;
-    height: 412px;
-    width: 350px;
-    flex-direction: row;
-    
+    top: 0;
+    height: 454px;
+    width: 400px;
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 65px auto auto auto;
 }
-#rightContainer {
-    float: right;
+#buttonContainer > * {
+    padding: 0.5em 1.25em;
+    text-align: center;
     position: relative;
-    width: 90px;
+    font-size: 23px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0;
 }
-#bottomContainer {
-    width: 270px;
+#enter {
+    grid-column: -2;
+    grid-row: 2 / span 4;
+    background-color: rgb(201, 109, 76);
+    font-style: oblique;
 }
-#buttonNumbers {
-    top: 85px;
-    height: 326px;
-    width: 260px;
-    position: relative;
-    display: flexbox;   
+#enter:hover {
+    background-color: rgb(201, 112, 81);
 }
-button {
-    width: 70px;
-    height: 60px;
-    margin: 9px;
-    margin-right: 2px;
-    padding: 8px;
-    display: inline-block;
-    align-items: flex-start;
+.operators {
+    background-color: rgb(197, 197, 197);
 }
-button#add {
-    height: 138px;
-}
-button#enter {
-    height: 138px;
-}
-button#zero {
-    width: 156px;
+button:hover {
+    background-color: rgb(214, 214, 214);
 }
