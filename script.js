@@ -24,3 +24,5 @@ function operate(oper, a, b) {
         return divide(a, b);
     }
 }
+const buttonContainer = document.getElementById('buttonContainer');
+const button = document.createElement('button');
