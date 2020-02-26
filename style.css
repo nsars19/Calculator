@@ -54,11 +54,24 @@ header {
     font-style: oblique;
 }
 #enter:hover {
-    background-color: rgb(201, 112, 81);
+    background-color: rgb(201, 109, 76);
+}
+#enter:active {
+    background-color: rgb(192, 96, 64);
+
 }
 .operators {
     background-color: rgb(197, 197, 197);
 }
+.operators:hover {
+    background-color: rgb(197, 197, 197);
+}
+.operators:active {
+    background-color: rgb(187, 184, 181);
+}
 button:hover {
-    background-color: rgb(214, 214, 214);
+    background-color: rgb(206, 206, 206);
+}
+button:active {
+    background-color: rgb(187, 184, 181);
 }
