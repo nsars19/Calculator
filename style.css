@@ -18,14 +18,12 @@ header {
     background-color: rgb(65, 63, 62);
     box-shadow: 2px 3px 12px 0px black;
 }
-#displayContainer {
+#display {
     position: relative;
-    height: 115px;
+    height: 65px;
     text-align: end;
     font-size: 72px;
     color: rgba(226, 226, 226, 0.815);
-}
-#displayValue {
     padding: 25px 0;
     text-align: right;
 }
