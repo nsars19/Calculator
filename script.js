@@ -87,20 +87,9 @@ zeroElem.addEventListener('click', () => {
 
 const minusOp = document.getElementById('subtract');
 minusOp.addEventListener('click', () => {
-    if ('firstNum' in value) {
-        value['secondNum'] = displayVal.innerText;
-        displayVal.innerText = subtract(value['firstNum'], value['secondNum']);
-        value['total'] = displayVal.innerText;
-    }
-    if ('total' in value) {
-        displayVal.innerText = 0;
-        displayVal.innerText = subtract(display['total'], display['secondNum']);
-    } else {
-        value['firstNum'] = displayVal.innerText;
+    value['firstNum'] = displayVal.innerText;
     value['operator'] = 'subtract';
     displayVal.innerText = '';
-    console.log('a');
-}
 });
 const addOp = document.getElementById('add');
 addOp.addEventListener('click', () => {
