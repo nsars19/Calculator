@@ -90,6 +90,9 @@ let value = {};
 
 const minusOp = document.getElementById('subtract');
 minusOp.addEventListener('click', () => {
+    if ('firstNum' in value) {
+
+    }
     value['firstNum'] = document.getElementById('display').innerText;
     value['operator'] = 'subtract';
     document.getElementById('display').innerText = '';
@@ -117,6 +120,9 @@ divideOp.addEventListener('click', () => {
 
 const enter = document.getElementById('enter');
 enter.addEventListener('click', () => {
+    if ('firstNum' in value === false) {
+        document.getElementById('display') = '';
+    }
     if ('total' in value) {
         value['secondNum'] = document.getElementById('display').innerText;
         document.getElementById('display').innerText = operate(value['operator'], Number(value['total']), Number(value['secondNum']));
