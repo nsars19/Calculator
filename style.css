@@ -14,9 +14,9 @@ header {
     width: 400px;
     margin: auto;
     overflow: hidden;
-    border-radius: 12px;    
+    border-radius: 15px;    
     background-color: rgb(65, 63, 62);
-    box-shadow: 2px 3px 12px 0px black;
+    box-shadow: 8px 6px 12px -6px rgb(79, 77, 167);
 }
 #display {
     position: relative;
@@ -56,13 +56,12 @@ header {
 }
 #enter:active {
     background-color: rgb(192, 96, 64);
-
 }
 .operators {
-    background-color: rgb(197, 197, 197);
+    background-color: rgb(193, 193, 193);
 }
 .operators:hover {
-    background-color: rgb(197, 197, 197);
+    background-color: rgb(193, 193, 193);
 }
 .operators:active {
     background-color: rgb(187, 184, 181);

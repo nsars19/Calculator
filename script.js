@@ -30,9 +30,10 @@ function operate(oper, a, b) {
 const clearDisplay = document.getElementById('clear');
 clearDisplay.addEventListener('click', () => {
     document.getElementById('display').innerText = '';
-    value['firstNum'] = '';
-    value['secondNum'] = '';
-    value['operator'] = '';
+    delete value['firstNum'];
+    delete value['secondNum'];
+    delete value['operator'];
+    delete value['total'];
 });
 const decimal = document.getElementById('decimal');
 decimal.addEventListener('click', () => {
@@ -116,7 +117,15 @@ divideOp.addEventListener('click', () => {
 
 const enter = document.getElementById('enter');
 enter.addEventListener('click', () => {
+    if ('total' in value) {
+        value['secondNum'] = document.getElementById('display').innerText;
+        document.getElementById('display').innerText = operate(value['operator'], Number(value['total']), Number(value['secondNum']));
+        value['total'] = document.getElementById('display').innerText;
+
+    } else {
     value['secondNum'] = document.getElementById('display').innerText;
     document.getElementById('display').innerText = operate(value['operator'], Number(value['firstNum']), Number(value['secondNum']));
+    value['total'] = document.getElementById('display').innerText;
+    }
 });
 
