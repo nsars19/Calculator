@@ -1,5 +1,5 @@
 function add(a, b) {
-    return a + b;
+    return (Number(a) + Number(b));
 }
 function subtract(a, b) {
     return a - b;
@@ -30,6 +30,9 @@ function operate(oper, a, b) {
 const clearDisplay = document.getElementById('clear');
 clearDisplay.addEventListener('click', () => {
     document.getElementById('display').innerText = '';
+    value['firstNum'] = '';
+    value['secondNum'] = '';
+    value['operator'] = '';
 });
 const decimal = document.getElementById('decimal');
 decimal.addEventListener('click', () => {
@@ -111,4 +114,9 @@ divideOp.addEventListener('click', () => {
 
 // Event listener for return total
 
+const enter = document.getElementById('enter');
+enter.addEventListener('click', () => {
+    value['secondNum'] = document.getElementById('display').innerText;
+    document.getElementById('display').innerText = operate(value['operator'], Number(value['firstNum']), Number(value['secondNum']));
+});
 
