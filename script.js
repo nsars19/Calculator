@@ -16,12 +16,14 @@ const operate = (oper, a, b) => {
         return divide(a, b);
     }
 }
-// Variable for storing the value of the display
+// Variables for storing the value of the display & current equation
 const displayVal = document.getElementById('display');
+const displayTop = document.getElementById('topText');
 
 const clearDisplay = document.getElementById('clear');
 clearDisplay.addEventListener('click', () => {
     displayVal.innerText = '';
+    displayTop.innerText = '';
     firstVar = undefined;
     secondVar = undefined;
     totalVar = undefined;
@@ -37,6 +39,7 @@ decimalElem.addEventListener('click', () => {
 for (let i = 0; i < 10; i++) { // Creates event listeners for digit buttons
     document.getElementById(`${i}`).addEventListener('click', () => {
         displayVal.innerText += i;
+        displayTop.innerText += i;
     });
 }
 
@@ -50,69 +53,25 @@ let firstVar,
 const minusOp = document.getElementById('subtract');
 minusOp.addEventListener('click', () => {
     operatorVar = 'subtract';
-    if (firstVar === undefined) {
-        firstVar = displayVal.innerText;
-        displayVal.innerText = '';
-    } else if (secondVar === undefined) {
-        secondVar = displayVal.innerText;
-        displayVal.innerText = '';
-    }
-    if (firstVar !== undefined && secondVar !== undefined) {
-        firstVar = displayVal.innerText;
-        displayVal.innerText = '';
-    }
+    displayTop.innerText += `-`;
     displayVal.innerText = '';
-    
 });
 const addOp = document.getElementById('add');
 addOp.addEventListener('click', () => {
     operatorVar = 'add';
-    if (firstVar === undefined) {
-        firstVar = displayVal.innerText;
-        displayVal.innerText = '';
-    } else if (secondVar === undefined) {
-        secondVar = displayVal.innerText;
-        displayVal.innerText = '';
-    }
-    if (firstVar !== undefined && secondVar !== undefined) {
-        firstVar = displayVal.innerText;
-        displayVal.innerText = '';
-    }
-    displayVal.innerText = '';
+    displayTop.innerText += `+`;
     displayVal.innerText = '';
 });
-
 const multiplyOp = document.getElementById('multiply');
 multiplyOp.addEventListener('click', () => {
     operatorVar = 'multiply';
-    if (firstVar === undefined) {
-        firstVar = displayVal.innerText;
-        displayVal.innerText = '';
-    } else if (secondVar === undefined) {
-        secondVar = displayVal.innerText;
-        displayVal.innerText = '';
-    }
-    if (firstVar !== undefined && secondVar !== undefined) {
-        firstVar = displayVal.innerText;
-        displayVal.innerText = '';
-    }
+    displayTop.innerText += `*`;
     displayVal.innerText = '';
 });
-
 const divideOp = document.getElementById('divide');
 divideOp.addEventListener('click', () => {
     operatorVar = 'divide';
-    if (firstVar === undefined) {
-        firstVar = displayVal.innerText;
-        displayVal.innerText = '';
-    } else if (secondVar === undefined) {
-        secondVar = displayVal.innerText;
-        displayVal.innerText = '';
-    }
-    if (firstVar !== undefined && secondVar !== undefined) {
-        firstVar = displayVal.innerText;
-        displayVal.innerText = '';
-    }
+    displayTop.innerText += `/`;
     displayVal.innerText = '';
 });
 
