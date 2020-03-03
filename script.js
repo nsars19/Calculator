@@ -1,22 +1,27 @@
+// ------------------------- Helper Functions ----------------------------//
+
 const add = (a, b) => { return parseFloat(a) + parseFloat(b); }
 const subtract = (a, b) => { return a - b; }
 const multiply = (a, b) => { return a * b; }
 const divide = (a, b) => { return a / b; }
 const operate = (oper, a, b) => {
-    if (oper === 'add') {
+    if (oper === '+') {
         return add(a, b);
     }
-    if (oper === 'subtract') {
+    if (oper === '-') {
         return subtract(a, b);
     }
-    if (oper === 'multiply') {
+    if (oper === '*') {
         return multiply(a, b);
     }
-    if (oper === 'divide') {
+    if (oper === '/') {
         return divide(a, b);
     }
 }
-// Variables for storing the value of the display & current equation
+
+
+// -- Variables for storing the value of the display & current equation --//
+
 const displayVal = document.getElementById('display');
 const displayTop = document.getElementById('topText');
 
@@ -43,12 +48,8 @@ for (let i = 0; i < 10; i++) { // Creates event listeners for digit buttons
     });
 }
 
-// Event listeners for operators & variables to store input values
 
-let firstVar, 
-    secondVar,
-    totalVar,
-    operatorVar = '';
+// --------------------Event listeners for operators---------------------//
 
 const minusOp = document.getElementById('subtract');
 minusOp.addEventListener('click', () => {
@@ -75,21 +76,30 @@ divideOp.addEventListener('click', () => {
     displayVal.innerText = '';
 });
 
-// Event listener for equals button
+
+// ------------------ Event listener for equals button ------------------ //
+
 const enter = document.getElementById('enter');
 enter.addEventListener('click', () => {
-    if (firstVar === undefined && secondVar === undefined) {
-        displayVal.innerText = '';
-    } else if (firstVar !== undefined && secondVar !== undefined) {
-        secondVar = displayVal.innerText;
-        displayVal.innerText = operate(operatorVar, firstVar, secondVar);
-    } else {
-        secondVar = displayVal.innerText;
-        displayVal.innerText = operate(operatorVar, firstVar, secondVar);
-    }    
+    const expArr ={}; // Object to hold expressions
+    const textArr = displayTop.innerText.split(/([^0-9])/g);
+    let i = 0;
+
+    while (i < textArr.length) {
+        if (textArr[i] === '/' || textArr[i] === '*') {
+            let total = operate(textArr[i], parseFloat(textArr[i - 1]), parseFloat(textArr[i + 1]));
+            textArr.splice(textArr[i - 1], 3, total);
+        }
+        i++;
+    }
+    console.log(textArr);
+
 });
-// Keyboard functionality || same code as above, but attached to
-// corresponding keys
+
+
+// ----------------------- Keyboard functionality ----------------------- //
+//--------- same code as above, but attached to corresponding keys ------ //
+
 document.onkeydown = function(event) {
     if (event.keyCode == 97 || event.keyCode == 49) {
         displayVal.innerText += 1;
@@ -120,9 +130,6 @@ document.onkeydown = function(event) {
     }
     if (event.keyCode == 96 || event.keyCode == 48) {
         displayVal.innerText += 0;
-    }
-    if (event.keyCode == 35 || event.keyCode == 49) {
-        displayVal.innerText += 1;
     }
     if (event.keyCode == 107) {
         operatorVar = 'add';
