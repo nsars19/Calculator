@@ -53,27 +53,39 @@ for (let i = 0; i < 10; i++) { // Creates event listeners for digit buttons
 
 const minusOp = document.getElementById('subtract');
 minusOp.addEventListener('click', () => {
-    operatorVar = 'subtract';
-    displayTop.innerText += `-`;
-    displayVal.innerText = '';
+    if (displayTop.innerText.lastIndexOf('-') !== displayTop.innerText.length - 1) {
+        displayTop.innerText += `-`;
+        displayVal.innerText = '';
+    } else {
+        displayTop.innerText = displayTop.innerText;
+    }    
 });
 const addOp = document.getElementById('add');
 addOp.addEventListener('click', () => {
-    operatorVar = 'add';
-    displayTop.innerText += `+`;
-    displayVal.innerText = '';
+    if (displayTop.innerText.lastIndexOf('+') !== displayTop.innerText.length - 1) {
+        displayTop.innerText += `+`;
+        displayVal.innerText = '';
+    } else {
+        displayTop.innerText = displayTop.innerText;
+    }
 });
 const multiplyOp = document.getElementById('multiply');
 multiplyOp.addEventListener('click', () => {
-    operatorVar = 'multiply';
-    displayTop.innerText += `*`;
-    displayVal.innerText = '';
+    if (displayTop.innerText.lastIndexOf('*') !== displayTop.innerText.length - 1) {
+        displayTop.innerText += `*`;
+        displayVal.innerText = '';
+    } else {
+        displayTop.innerText = displayTop.innerText;
+    }
 });
 const divideOp = document.getElementById('divide');
 divideOp.addEventListener('click', () => {
-    operatorVar = 'divide';
-    displayTop.innerText += `/`;
-    displayVal.innerText = '';
+    if (displayTop.innerText.lastIndexOf('/') !== displayTop.innerText.length - 1) {
+        displayTop.innerText += `/`;
+        displayVal.innerText = '';
+    } else {
+        displayTop.innerText = displayTop.innerText;
+    }
 });
 
 
@@ -83,16 +95,19 @@ const enter = document.getElementById('enter');
 enter.addEventListener('click', () => {
     const expArr ={}; // Object to hold expressions
     const textArr = displayTop.innerText.split(/([^0-9])/g);
-    let i = 0;
 
-    while (i < textArr.length) {
-        if (textArr[i] === '/' || textArr[i] === '*') {
-            let total = operate(textArr[i], parseFloat(textArr[i - 1]), parseFloat(textArr[i + 1]));
-            textArr.splice(textArr[i - 1], 3, total);
+
+    while (textArr.length > 1) {
+        for (let i = 0; i < textArr.length; i++) {
+            if (textArr[i] === '/' || textArr[i] === '*') {
+                let total = operate(textArr[i], parseFloat(textArr[i - 1]), parseFloat(textArr[i + 1]));
+                textArr.splice((i - 1), 3, total);
+            }
+            
+            continue;
         }
-        i++;
-    }
-    console.log(textArr);
+        console.log(textArr);
+    }    
 
 });
 
