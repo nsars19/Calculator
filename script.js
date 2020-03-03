@@ -96,19 +96,36 @@ enter.addEventListener('click', () => {
     const expArr ={}; // Object to hold expressions
     const textArr = displayTop.innerText.split(/([^0-9])/g);
 
-
+    main:
     while (textArr.length > 1) {
+
         for (let i = 0; i < textArr.length; i++) {
+
             if (textArr[i] === '/' || textArr[i] === '*') {
                 let total = operate(textArr[i], parseFloat(textArr[i - 1]), parseFloat(textArr[i + 1]));
                 textArr.splice((i - 1), 3, total);
-            }
-            
-            continue;
-        }
-        console.log(textArr);
-    }    
+                console.log(textArr);
+                continue main;
 
+            } else if (textArr[i] === '+' || textArr[i] === '-') {
+                continue;
+            }
+        }
+
+        for (let i = 0; i < textArr.length; i++) {
+
+            if (textArr[i] === '+' || textArr[i] === '-') {
+                let total = operate(textArr[i], parseFloat(textArr[i - 1]), parseFloat(textArr[i + 1]));
+                textArr.splice((i - 1), 3, total);
+                console.log(textArr);
+                continue main;
+
+            } else if (textArr[i] === '/' || textArr[i] === '*') {
+                continue;
+            }
+        }
+    }    
+    displayVal.innerText = textArr[0];
 });
 
 
