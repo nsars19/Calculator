@@ -31,8 +31,7 @@ header {
 }
 #topText {
     position: absolute;
-    right: 8px;
-    padding-right: 8px;
+    padding-left: 8px;
     padding-top: 6px;
     font-size: 20px;
     color: rgba(226, 226, 226, 0.815);
