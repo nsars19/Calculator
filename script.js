@@ -32,16 +32,12 @@ const clearDisplay = document.getElementById('clear');
 clearDisplay.addEventListener('click', () => {
     displayVal.innerText = '';
     displayTop.innerText = '';
-    firstVar = undefined;
-    secondVar = undefined;
-    totalVar = undefined;
-    operatorVar = undefined;
 });
 const decimalElem = document.getElementById('decimal');
 decimalElem.addEventListener('click', () => {
     if (displayVal.innerText.search(/[.]/) == -1) {
         displayVal.innerText += '.';
-    };
+    }
 });
 
 for (let i = 0; i < 10; i++) { // Creates event listeners for digit buttons
@@ -59,8 +55,6 @@ minusOp.addEventListener('click', () => {
     if (displayTop.innerText.lastIndexOf('-') !== displayTop.innerText.length - 1) {
         displayTop.innerText += `-`;
         displayVal.innerText = '';
-    } else {
-        displayTop.innerText = displayTop.innerText;
     }    
 });
 const addOp = document.getElementById('add');
@@ -68,8 +62,6 @@ addOp.addEventListener('click', () => {
     if (displayTop.innerText.lastIndexOf('+') !== displayTop.innerText.length - 1) {
         displayTop.innerText += `+`;
         displayVal.innerText = '';
-    } else {
-        displayTop.innerText = displayTop.innerText;
     }
 });
 const multiplyOp = document.getElementById('multiply');
@@ -77,8 +69,6 @@ multiplyOp.addEventListener('click', () => {
     if (displayTop.innerText.lastIndexOf('*') !== displayTop.innerText.length - 1) {
         displayTop.innerText += `*`;
         displayVal.innerText = '';
-    } else {
-        displayTop.innerText = displayTop.innerText;
     }
 });
 const divideOp = document.getElementById('divide');
@@ -86,8 +76,6 @@ divideOp.addEventListener('click', () => {
     if (displayTop.innerText.lastIndexOf('/') !== displayTop.innerText.length - 1) {
         displayTop.innerText += `/`;
         displayVal.innerText = '';
-    } else {
-        displayTop.innerText = displayTop.innerText;
     }
 });
 
@@ -147,32 +135,24 @@ document.onkeydown = function(event) {
         if (displayTop.innerText.lastIndexOf('+') !== displayTop.innerText.length - 1) {
             displayTop.innerText += `+`;
             displayVal.innerText = '';
-        } else {
-            displayTop.innerText = displayTop.innerText;
         }
     }
     if (event.keyCode == 109) {
         if (displayTop.innerText.lastIndexOf('-') !== displayTop.innerText.length - 1) {
             displayTop.innerText += `-`;
             displayVal.innerText = '';
-        } else {
-            displayTop.innerText = displayTop.innerText;
         }
     }
     if (event.keyCode == 106) {
         if (displayTop.innerText.lastIndexOf('*') !== displayTop.innerText.length - 1) {
             displayTop.innerText += `*`;
             displayVal.innerText = '';
-        } else {
-            displayTop.innerText = displayTop.innerText;
         }
     }
     if (event.keyCode == 111) {
         if (displayTop.innerText.lastIndexOf('/') !== displayTop.innerText.length - 1) {
             displayTop.innerText += `/`;
             displayVal.innerText = '';
-        } else {
-            displayTop.innerText = displayTop.innerText;
         }
     }
     if (event.keyCode == 13) {
@@ -212,14 +192,10 @@ document.onkeydown = function(event) {
     if (event.keyCode == 110) {
         if (displayVal.innerText.search(/[.]/) == -1) {
             displayVal.innerText += '.';
-        };
+        }
     }   
     if (event.keyCode == 8) {
         displayVal.innerText = '';
         displayTop.innerText = '';
-        firstVar = undefined;
-        secondVar = undefined;
-        totalVar = undefined;
-        operatorVar = undefined;
     }
 };
